@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/contribuyentes_ver.css">
+		<link rel="shortcut icon" href="logo.jpeg">
+		<title>Contribuyentes ver</title>
+	</head>
+	<body>
+<nav class="caja_menu_1">
+			<ul class="caja_menu_2"><br>
+				<li><a>Usuarios</a>
+                    <ul class="caja_menu_3">
+					    <li><a href="usuario_ver.html">Ver</a></li>
+						<li><a href="usuario_agregar.html">Agregar</a></li>
+					</ul>
+                </li>
+                
+	           	<li><a>Detalles de cobro</a>
+                    <ul class="caja_menu_3">
+					    <li><a href="detaco_cancelarrecibo.html">Cancelar recibo</a></li>
+						<li><a href="detaco_relizarcortedia.html">Realizar corte del día</a></li>
+						<li><a href="detaco_relizarcortemes.html">Realizar corte del mes</a></li>
+						<li><a href="detaco_verrecibo.html">Ver recibo</a></li>
+					</ul>
+                </li>
+                
+	           	<li><a>Catalogo</a>
+					<ul class="caja_menu_3">
+					    <li><a href="catalogo_ver.html">Ver</a></li>
+						<li><a href="catalogo_agregar.html">Agregar</a></li>
+						<li><a href="catalogo_editar.html">Editar</a></li>
+						<li><a href="catalogo_eliminar.html">Eliminar</a></li>
+					</ul>
+				</li>
+				
+				<li><a>Contribuyentes</a>
+					<ul class="caja_menu_3">
+					    <li><a href="contribuyentes_ver.html">Ver</a></li>
+						<li><a href="contribuyentes_agregar.html">Agregar</a></li>
+						<li><a href="contribuyentes_editar.html">Editar</a></li>
+						<li><a href="contribuyentes_eliminar.html">Eliminar</a></li>
+					</ul>
+				</li>
+				
+				<li><a>Ingresos</a>
+					<ul class="caja_menu_3">
+					    <li><a href="ingresos_realizarcobro.html">Realizar cobro</a></li>
+					</ul>
+				</li>
+				
+				<li><a id="cerrar_sesion" href="index.html">Salir</a></li>
+			</ul>
+		</nav>
+
+	    <br><br>
+		<center><table border="1" cellpadding="0" cellspacing="0" width="95%" class="tabla">
+		    <tr id="fila-titulo">
+		        <td colspan="9">
+		            <center id="titulo">CONTRIBUYENTES</center>
+		        </td>
+		    </tr>
+		    
+		    <tr id="fila-titulo">
+		        <td>
+		            <center>CLASIFICACIÓN</center>
+		        </td>
+		        <td>
+		            <center>NOMBRE</center>
+		        </td>
+		        <td>
+		            <center>RFC</center>
+		        </td>
+		        <td>
+		            <center>DOMICILIO</center>
+		        </td>
+		        <td>
+		            <center>CORREO</center>
+		        </td>
+		        <td>
+		            <center>TELEFONO CASA</center>
+		        </td>
+		        <td>
+		            <center>CELULAR</center>
+		        </td>
+		    </tr>
+		    <?php 
+                while ($dco = mysqli_fetch_array($buscar_contribuyentes))
+                {
+            ?>
+    		    <tr id="fila-resultados">
+    		        <td>
+    		            <?php 
+    		                $da = $dco['CLASIFICACION']; echo $da;
+    		             ?>
+                    </td>
+    		        <td>
+    		           <?php 
+    		                $da = $dco['NOMBRE']; echo $da;
+    		                include ('conexionn.php');
+    		             ?>
+    		        </td>
+    		        <td>
+    		            <?php 
+    		                $da = $dco['RFC']; echo $da;
+    		             ?>
+                    </td>
+    		        <td>
+    		            <?php 
+    		                $da = $dco['DOMICILIO']; echo $da;
+    		             ?>
+                    </td>
+    		        <td>
+    		           <?php 
+    		                $da = $dco['CORREO_ELECTRONICO']; echo $da;
+    		             ?>
+    		        </td>
+    		        <td>
+    		            <?php 
+    		                $da = $dco['TELEFONO_CASA']; echo $da;
+    		             ?>
+                    </td>
+    		        <td>
+    		            <?php 
+    		                $da = $dco['CELULAR']; echo $da;
+    		                include ('conexionn.php');
+    		             ?>
+                    </td>
+		        <?php 
+                    } 
+                ?>
+		    </tr>
+		</table></center>
+		<br><br><br>
+	</body>
+</html>

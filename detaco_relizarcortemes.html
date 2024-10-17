@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/detaco_relizarcortemes.css">
+		<link rel="shortcut icon" href="logo.jpeg">
+		<title>Detaco realizar corte mes</title>
+	</head>
+	<body background="logo.jpeg">
+<nav class="caja_menu_1">
+			<ul class="caja_menu_2"><br>
+				<li><a>Usuarios</a>
+                    <ul class="caja_menu_3">
+					    <li><a href="usuario_ver.html">Ver</a></li>
+						<li><a href="usuario_agregar.html">Agregar</a></li>
+					</ul>
+                </li>
+                
+	           	<li><a>Detalles de cobro</a>
+                    <ul class="caja_menu_3">
+					    <li><a href="detaco_cancelarrecibo.html">Cancelar recibo</a></li>
+						<li><a href="detaco_relizarcortedia.html">Realizar corte del día</a></li>
+						<li><a href="detaco_relizarcortemes.html">Realizar corte del mes</a></li>
+						<li><a href="detaco_verrecibo.html">Ver recibo</a></li>
+					</ul>
+                </li>
+                
+	           	<li><a>Catalogo</a>
+					<ul class="caja_menu_3">
+					    <li><a href="catalogo_ver.html">Ver</a></li>
+						<li><a href="catalogo_agregar.html">Agregar</a></li>
+						<li><a href="catalogo_editar.html">Editar</a></li>
+						<li><a href="catalogo_eliminar.html">Eliminar</a></li>
+					</ul>
+				</li>
+				
+				<li><a>Contribuyentes</a>
+					<ul class="caja_menu_3">
+					    <li><a href="contribuyentes_ver.html">Ver</a></li>
+						<li><a href="contribuyentes_agregar.html">Agregar</a></li>
+						<li><a href="contribuyentes_editar.html">Editar</a></li>
+						<li><a href="contribuyentes_eliminar.html">Eliminar</a></li>
+					</ul>
+				</li>
+				
+				<li><a>Ingresos</a>
+					<ul class="caja_menu_3">
+					    <li><a href="ingresos_realizarcobro.html">Realizar cobro</a></li>
+					</ul>
+				</li>
+				
+				<li><a id="cerrar_sesion" href="index.html">Salir</a></li>
+			</ul>
+		</nav>
+
+	    <br><br>
+		<div class="container" >
+			<div class="container-form">
+				<center><h1 style="color: #FFFFFF;">REALIZAR CORTE DEL MES</h1></center><br>
+				<form target="_blank" action="z_m_detaco_realizarcortemes.php" method="POST">
+				    <h5 style="color: #FFFFFF">
+        			    SELECCIONE EL MES
+        			    <input type="text" name="mes" list="mes" required style="width: 450px;">
+                        <datalist id="mes" style='color:#000000;'>
+                            <option value="01"></option>
+                            <option value="02"></option>
+                            <option value="03"></option>
+                            <option value="04"></option>
+                            <option value="05"></option>
+                            <option value="06"></option>
+                            <option value="07"></option>
+                            <option value="08"></option>
+                            <option value="09"></option>
+                            <option value="10"></option>
+                            <option value="11"></option>
+                            <option value="12"></option>
+                        </datalist>
+                    </h5><br>
+                    <h5 style="color: #FFFFFF">
+        			    SELECCIONE EL AÑO
+        			    <input type="text" name="anio" list="anio" required style="width: 450px;">
+                        <datalist id="anio" style='color:#000000;'>
+                            <option value="2022"></option>
+                            <option value="2023"></option>
+                            <option value="2024"></option>
+                        </datalist>
+                    </h5><br>
+					<center>
+					    <input type="submit" id="boton" value="REALIZAR CORTE"> 
+					    <input type="reset" id="boton" value="LIMPIAR CAMPOS">
+				    </center>
+				    <br><br><br><br><br><br><br><br>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/catalogo_editar.css">
+		<link rel="shortcut icon" href="logo.jpeg">
+		<title>Catalogo editar</title>
+	</head>
+	<body background="logo.jpeg">
+<nav class="caja_menu_1">
+			<ul class="caja_menu_2"><br>
+				<li><a>Usuarios</a>
+                    <ul class="caja_menu_3">
+					    <li><a href="usuario_ver.html">Ver</a></li>
+						<li><a href="usuario_agregar.html">Agregar</a></li>
+					</ul>
+                </li>
+                
+	           	<li><a>Detalles de cobro</a>
+                    <ul class="caja_menu_3">
+					    <li><a href="detaco_cancelarrecibo.html">Cancelar recibo</a></li>
+						<li><a href="detaco_relizarcortedia.html">Realizar corte del día</a></li>
+						<li><a href="detaco_relizarcortemes.html">Realizar corte del mes</a></li>
+						<li><a href="detaco_verrecibo.html">Ver recibo</a></li>
+					</ul>
+                </li>
+                
+	           	<li><a>Catalogo</a>
+					<ul class="caja_menu_3">
+					    <li><a href="catalogo_ver.html">Ver</a></li>
+						<li><a href="catalogo_agregar.html">Agregar</a></li>
+						<li><a href="catalogo_editar.html">Editar</a></li>
+						<li><a href="catalogo_eliminar.html">Eliminar</a></li>
+					</ul>
+				</li>
+				
+				<li><a>Contribuyentes</a>
+					<ul class="caja_menu_3">
+					    <li><a href="contribuyentes_ver.html">Ver</a></li>
+						<li><a href="contribuyentes_agregar.html">Agregar</a></li>
+						<li><a href="contribuyentes_editar.html">Editar</a></li>
+						<li><a href="contribuyentes_eliminar.html">Eliminar</a></li>
+					</ul>
+				</li>
+				
+				<li><a>Ingresos</a>
+					<ul class="caja_menu_3">
+					    <li><a href="ingresos_realizarcobro.html">Realizar cobro</a></li>
+					</ul>
+				</li>
+				
+				<li><a id="cerrar_sesion" href="index.html">Salir</a></li>
+			</ul>
+		</nav>
+
+	    <br><br>
+	   	<div class="container" >
+			<div class="container-form">
+				<center>
+				    <h1 style="color: #FFFFFF;">EDITAR CONCEPTO</h1><br>
+					<form action="z_m_catalogo_editar.php" method="POST">
+					    <h5 style="color: #FFFFFF">SELECCIONE EL CONCEPTO
+                            <input type="text" name="nomconceptos" list="nomconceptos" required style="width: 390px;">
+                            <datalist id="nomconceptos" style='color:#000000;'>
+                                <?php 
+                                    while ($dco = mysqli_fetch_array($nombresconceptos)){
+                                ?>
+                                <option value="<?php $da = $dco['CONCEPTO']; echo $da; ?>"></option>
+                                <?php } include ('conexionn.php');?>
+                            </datalist>
+                        </h5><br>
+						<input id="datosentrada" type="text" name="concepto" placeholder="Nombre del concepto" maxlength="150" required><br>
+						<input type="submit" id="boton" value="EDITAR CONCEPTO">
+						<input type="reset" id="boton" value="LIMPIAR CAMPOS">
+						<br><br><br><br><br><br><br><br><br>
+					</form>
+				</center>
+			</div>
+		</div>
+	</body>
+</html>

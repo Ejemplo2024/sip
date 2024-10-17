@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/catalogo_ver.css">
+		<link rel="shortcut icon" href="logo.jpeg">
+		<title>Catalogo ver</title>
+	</head>
+	<body>
+<nav class="caja_menu_1">
+			<ul class="caja_menu_2"><br>
+				<li><a>Usuarios</a>
+                    <ul class="caja_menu_3">
+					    <li><a href="usuario_ver.html">Ver</a></li>
+						<li><a href="usuario_agregar.html">Agregar</a></li>
+					</ul>
+                </li>
+                
+	           	<li><a>Detalles de cobro</a>
+                    <ul class="caja_menu_3">
+					    <li><a href="detaco_cancelarrecibo.html">Cancelar recibo</a></li>
+						<li><a href="detaco_relizarcortedia.html">Realizar corte del día</a></li>
+						<li><a href="detaco_relizarcortemes.html">Realizar corte del mes</a></li>
+						<li><a href="detaco_verrecibo.html">Ver recibo</a></li>
+					</ul>
+                </li>
+                
+	           	<li><a>Catalogo</a>
+					<ul class="caja_menu_3">
+					    <li><a href="catalogo_ver.html">Ver</a></li>
+						<li><a href="catalogo_agregar.html">Agregar</a></li>
+						<li><a href="catalogo_editar.html">Editar</a></li>
+						<li><a href="catalogo_eliminar.html">Eliminar</a></li>
+					</ul>
+				</li>
+				
+				<li><a>Contribuyentes</a>
+					<ul class="caja_menu_3">
+					    <li><a href="contribuyentes_ver.html">Ver</a></li>
+						<li><a href="contribuyentes_agregar.html">Agregar</a></li>
+						<li><a href="contribuyentes_editar.html">Editar</a></li>
+						<li><a href="contribuyentes_eliminar.html">Eliminar</a></li>
+					</ul>
+				</li>
+				
+				<li><a>Ingresos</a>
+					<ul class="caja_menu_3">
+					    <li><a href="ingresos_realizarcobro.html">Realizar cobro</a></li>
+					</ul>
+				</li>
+				
+				<li><a id="cerrar_sesion" href="index.html">Salir</a></li>
+			</ul>
+		</nav>
+
+	    <br><br>
+		<center><table border="1" cellpadding="0" cellspacing="0" width="95%" class="tabla">
+		    <tr id="fila-titulo">
+		        <td colspan="9">
+		            <center id="titulo">CONCEPTOS</center>
+		        </td>
+		    </tr>
+		    <?php 
+                while ($dco = mysqli_fetch_array($buscar_conceptos))
+                {
+            ?>
+    		    <tr id="fila-resultados">
+    		        <td>
+    		            <?php 
+    		                $da = $dco['CONCEPTO']; echo $da;
+    		             ?>
+                    </td>
+		        <?php include ('conexionn.php');
+                    } 
+                ?>
+		    </tr>
+		</table></center>
+	</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8">
+		 <link rel="stylesheet" href="css/ingresos_realizarcobro.css">
+		<link rel="shortcut icon" href="logo.jpeg">
+		<title>Ingresos realizar cobro</title>
+	</head>
+    <body>
+<nav class="caja_menu_1">
+			<ul class="caja_menu_2"><br>
+				<li><a>Usuarios</a>
+                    <ul class="caja_menu_3">
+					    <li><a href="usuario_ver.html">Ver</a></li>
+						<li><a href="usuario_agregar.html">Agregar</a></li>
+					</ul>
+                </li>
+                
+	           	<li><a>Detalles de cobro</a>
+                    <ul class="caja_menu_3">
+					    <li><a href="detaco_cancelarrecibo.html">Cancelar recibo</a></li>
+						<li><a href="detaco_relizarcortedia.html">Realizar corte del día</a></li>
+						<li><a href="detaco_relizarcortemes.html">Realizar corte del mes</a></li>
+						<li><a href="detaco_verrecibo.html">Ver recibo</a></li>
+					</ul>
+                </li>
+                
+	           	<li><a>Catalogo</a>
+					<ul class="caja_menu_3">
+					    <li><a href="catalogo_ver.html">Ver</a></li>
+						<li><a href="catalogo_agregar.html">Agregar</a></li>
+						<li><a href="catalogo_editar.html">Editar</a></li>
+						<li><a href="catalogo_eliminar.html">Eliminar</a></li>
+					</ul>
+				</li>
+				
+				<li><a>Contribuyentes</a>
+					<ul class="caja_menu_3">
+					    <li><a href="contribuyentes_ver.html">Ver</a></li>
+						<li><a href="contribuyentes_agregar.html">Agregar</a></li>
+						<li><a href="contribuyentes_editar.html">Editar</a></li>
+						<li><a href="contribuyentes_eliminar.html">Eliminar</a></li>
+					</ul>
+				</li>
+				
+				<li><a>Ingresos</a>
+					<ul class="caja_menu_3">
+					    <li><a href="ingresos_realizarcobro.html">Realizar cobro</a></li>
+					</ul>
+				</li>
+				
+				<li><a id="cerrar_sesion" href="index.html">Salir</a></li>
+			</ul>
+		</nav>
+
+        <br><br>
+        <h1>CAJA TESORERIA MUNICIPAL</h1><br>
+        <center>
+            <table width="95%" border="1">
+                <form action='z_m_ingresos_realizarcobro.php' target="_blank" method='POST'>
+                    <tr>
+                        <td>
+                            <center><h2>BUSCAR DATOS</h2></center>
+                            <h5>SELECCIONE EL NOMBRE DEL CONTRIBUYENTE
+                                <input type="text" id="nombrecontribuyente" name="nombrecontribuyente" list="nocontribuyentes" style='width:900px' required>
+                                <datalist id="nocontribuyentes" style='color:#000000;'>
+                                    <?php 
+                                        while ($dcn = mysqli_fetch_array($buscar_contribuyentes))
+                                        {
+                                    ?>
+                                            <option value="<?php $dt = $dcn['NOMBRE']; echo $dt; ?>"></option>
+                                    <?php 
+                                        } include ('conexionn.php'); 
+                                    ?>
+                                </datalist>
+                            </h5><br>
+                            
+                            <h5>SELECCIONE EL NOMBRE DEL CONCEPTO
+                                <input type="text" id="nombreconcepto" name="nombreconcepto" list="nconcepto" style='width:947px' required>
+                                <datalist id="nconcepto" style='color:#000000;'>
+                                    <?php 
+                                        while ($dcn = mysqli_fetch_array($buscar_conceptos))
+                                        {
+                                    ?>
+                                            <option value="<?php $dt = $dcn['CONCEPTO']; echo $dt; ?>"></option>
+                                    <?php 
+                                        }  include ('conexionn.php');
+                                    ?>
+                                </datalist>
+                            </h5><br>
+                        
+                            <h5>COSTO DEL CONCEPTO
+                                <input style='width:1082px' type='number' step='any' name="costopagar" required>
+                            </h5><br>
+                            <h5>FECHA INICIO: 
+                                <input type="date" name="fechainicio" value="" required>
+                                FECHA FINAL: 
+                                <input type="date" name="fechafinal" value="" required>
+                            </h5><br>
+                            
+                            <h5>OBSERVACIONES 
+                                <input type="text" name="observaciones" style='width:1120px; height:50px;' required>
+                            </h5><br>
+                            
+                            <h5>SOLICITO FACTURA
+                        		<select name="solicitofactura" style='width:1105px' required>
+        					        <option value=""></option>
+        					        <option value="SI">SI</option>
+        					        <option value="NO">NO</option>
+                                </select>
+                            </h5><br>
+                            
+                            <h5>FORMAS DE PAGO
+                        		<select name="formasdepago" style='width:1105px' required>
+        					        <option value=""></option>
+        					        <option value="EFECTIVO">EFECTIVO</option>
+        					        <option value="TRANSFERENCIA">TRANSFERENCIA</option>
+                                </select>
+                            </h5><br>
+                            
+                            <center>
+                        		<input type="submit" id="boton" value="REALIZAR COBRO"> 
+                        		<input type="reset" id="boton" value="LIMPIAR CAMPOS">
+                    		</center>
+                        </td>
+                    </tr>
+                </form>
+        </table>
+    </body>
+</html>
